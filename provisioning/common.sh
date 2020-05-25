@@ -21,4 +21,12 @@ set -o pipefail  # don't mask errors in piped commands
 #------------------------------------------------------------------------------
 
 log 'Starting common provisioning tasks' 
+debug 'Installing updates'
+yum update -y
+
+debug 'Installing EPEL'
+yum install -y epel-release
+
+debug 'Installing base packages'
+yum install -y htop iotop vim tree curl wget
 log 'Common provisioning tasks finished'
