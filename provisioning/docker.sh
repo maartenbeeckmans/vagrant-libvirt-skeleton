@@ -19,8 +19,6 @@ set -o pipefail  # don't mask errors in piped commands
 export readonly PROVISIONING_SCRIPTS="/vagrant/provisioning/"
 # Location of files to be copied to this -agent
 export readonly PROVISIONING_FILES="${PROVISIONING_SCRIPTS}/files/${HOSTNAME}"
-# Mysql root password
-readonly db_root_password="verysecuremysqlpassword"
 
 #------------------------------------------------------------------------------
 # "Imports"
