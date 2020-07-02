@@ -53,6 +53,8 @@ yum install -y docker-ce docker-ce-cli containerd.io
 debug "Starting and enabling docker service"
 systemctl start docker
 systemctl enable docker
+debug "Adding vagrant user to docker"
+gpasswd -a vagrant docker
 debug "Running hello-world image"
 docker run hello-world
 log "Server specific provisioning tasks for ${HOSTNAME} finished"
