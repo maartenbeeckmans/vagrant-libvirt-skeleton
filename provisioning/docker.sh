@@ -19,6 +19,8 @@ set -o pipefail  # don't mask errors in piped commands
 export readonly PROVISIONING_SCRIPTS="/vagrant/provisioning/"
 # Location of files to be copied to this -agent
 export readonly PROVISIONING_FILES="${PROVISIONING_SCRIPTS}/files/${HOSTNAME}"
+#Docker compose version
+export readonly DOCKER_COMPOSE_VERSION="1.26.1"
 
 #------------------------------------------------------------------------------
 # "Imports"
@@ -55,4 +57,13 @@ debug "Adding vagrant user to docker"
 gpasswd -a vagrant docker
 debug "Running hello-world image"
 docker run hello-world
+
+debug "Download docker compose"
+curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+debug "Adding execute permission docker-compose"
+chmod +x /usr/local/bin/docker-compose
+debug "Create symbolic link docker compose"
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+debug "Add docker-compose bash completion"
+curl -L https://raw.githubusercontent.com/docker/compose/1.26.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 log "Server specific provisioning tasks for ${HOSTNAME} finished"
