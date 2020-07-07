@@ -10,14 +10,13 @@ The plugin `vagrant-libvirt` must be installed.
 
 All the virtual machines are defined in the file `vagrant-hosts.yml`.
 
-There is a virtual machine named `minikube` where minikube is automatically installed. To start this virtual machine run the following command:
+Every virtual machine must have a provisioning script in the directory `provisioning/<vm_name>.sh`
+
+## Example usage
+
+There is a virtual machine with the name `docker` defined in `vagrant-hosts.yml`, to bring up the virtual machine, run the following command:
 
 ```bash
-vagrant up minikube
+vagrant up docker
 ```
 
-When the virtual machine is installed, finish the installation with the following commands:
-
-```bash
-vagrant ssh minikube
-[vagrant@minikube ~]$ minikube start --driver podman
