@@ -41,3 +41,6 @@ rpm -ivh minikube-latest.x86_64.rpm
 debug "Installing podman"
 yum install -y podman
 log "Server specific provisioning tasks for ${HOSTNAME} finished"
+
+log "To start minikube on the created virtual machine, run the following command after connecting with ssh"
+debug "minikube start --driver podman"
