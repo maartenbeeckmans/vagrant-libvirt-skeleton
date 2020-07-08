@@ -54,9 +54,6 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 EOF
 debug "Intalling kubectl"
 yum -y install kubectl
-
-debug "Installing Helm 3"
-curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 log "Server specific provisioning tasks for ${HOSTNAME} finished"
 
 log "To start minikube on the created virtual machine, run the following command after connecting with ssh"
