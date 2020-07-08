@@ -38,8 +38,12 @@ debug "Downloading latest version of minikube"
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
 debug "Installing minikube"
 rpm -ivh minikube-latest.x86_64.rpm
+
 debug "Installing podman"
 yum install -y podman
+
+debug "Installing Helm 3"
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 log "Server specific provisioning tasks for ${HOSTNAME} finished"
 
 log "To start minikube on the created virtual machine, run the following command after connecting with ssh"
