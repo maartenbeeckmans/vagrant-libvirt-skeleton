@@ -30,14 +30,58 @@
 # [1] http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
 ---
 
-- name: minikube
+# Plain os boxex
+- name: centos7
   ip: 192.168.101.51
+  netmask: 255.255.255.0
+  cpus: 2
+  memory: 2048
+  box: centos/7
+- name: centos8
+  ip: 192.168.101.52
+  netmask: 255.255.255.0
+  cpus: 2
+  memory: 2048
+  box: centos/8
+- name: debian9stretch
+  ip: 192.168.101.53
+  netmask: 255.255.255.0
+  cpus: 2
+  memory: 2048
+  box: debian/stretch64
+- name: debian10buster
+  ip: 192.168.101.54
+  netmask: 255.255.255.0
+  cpus: 2
+  memory: 2048
+  box: debian/buster64
+
+# Home environment
+- name: alpha
+  ip: 192.168.101.101
+  cpus: 2
+  memory: 4096
+  box: debian/buster64
+- name: bravo
+  ip: 192.168.101.102
+  cpus: 2
+  memory: 4096
+  box: debian/buster64
+- name: charlie
+  ip: 192.168.101.103
+  cpus: 2
+  memory: 4096
+  box: debian/buster64
+
+# Application specific boxed
+- name: minikube
+  ip: 192.168.101.151
   netmask: 255.255.255.0
   cpus: 2
   memory: 4096
   box: centos/7
 - name: docker
-  ip: 192.168.101.52
+  ip: 192.168.101.152
   netmask: 255.255.255.0
   cpus: 2
   memory: 4096

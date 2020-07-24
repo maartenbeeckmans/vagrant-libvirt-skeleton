@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# Provisioning script for puppet bolt
+# Provisioning script for docker
 
 #------------------------------------------------------------------------------
 # Bash settings
@@ -28,8 +28,8 @@ export readonly DOCKER_COMPOSE_VERSION="1.26.1"
 
 # Utility functions
 source ${PROVISIONING_SCRIPTS}/util.sh
-# Actions/settings common to all -agents
-source ${PROVISIONING_SCRIPTS}/common.sh
+# Actions/settings common to all agents
+source ${PROVISIONING_SCRIPTS}/common-centos.sh
 
 #------------------------------------------------------------------------------
 # Provision -agent
